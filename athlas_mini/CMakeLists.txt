@@ -100,8 +100,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES athlas_mini
-#  CATKIN_DEPENDS roscpp std_msgs
+#  LIBRARIES athlas_mini adc
+#  CATKIN_DEPENDS roscpp std_msgs"
+#  DEPENDS wiringPi
 #  DEPENDS system_lib
 )
 
@@ -117,26 +118,43 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(athlas_mini
-#   src/${PROJECT_NAME}/athlas_mini.cpp
-# )
+#  add_library(athlas_mini
+#    src/athlas_mini.cpp
+#  )
+
+#  add_library(adc
+#    src/adc.cpp
+#  )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(athlas_mini ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#  add_dependencies(athlas_mini ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+#  target_link_libraries(athlas_mini
+#    ${catkin_LIBRARIES}
+#    wiringPi
+#  )
+
+#  target_link_libraries(adc
+#    ${catkin_LIBRARIES}
+#    wiringPi
+#  )
 
 ## Declare a C++ executable
-# add_executable(athlas_mini_node src/athlas_mini_node.cpp)
+#  add_executable(athlas_mini_node src/athlas_mini_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(athlas_mini_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#  add_dependencies(athlas_mini_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(athlas_mini_node
-#   ${catkin_LIBRARIES}
-# )
+#  target_link_libraries(athlas_mini_node
+#    ${catkin_LIBRARIES}
+#    athlas_mini
+#    adc
+#    wiringPi
+#  )
 
 #############
 ## Install ##
