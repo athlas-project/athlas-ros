@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(athlas_mini)
+project(athlas)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -100,7 +100,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
  INCLUDE_DIRS include
- LIBRARIES athlas_mini adc_mini
+ LIBRARIES athlas_mini adc
  CATKIN_DEPENDS roscpp std_msgs
  DEPENDS wiringPi
 #  DEPENDS system_lib
@@ -118,41 +118,41 @@ include_directories(
 )
 
 ## Declare a C++ library
- add_library(athlas_mini
-   src/athlas_mini.cpp
+ add_library(athlas
+   src/athlas.cpp
  )
 
- add_library(adc_mini
-   src/adc_mini.cpp
+ add_library(adc
+   src/adc.cpp
  )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
- add_dependencies(athlas_mini ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+ add_dependencies(athlas ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
- target_link_libraries(athlas_mini
+ target_link_libraries(athlas
    ${catkin_LIBRARIES}
    wiringPi
  )
 
- target_link_libraries(adc_mini
+ target_link_libraries(adc
    ${catkin_LIBRARIES}
    wiringPi
  )
 
 ## Declare a C++ executable
- add_executable(athlas_mini_node src/athlas_mini_node.cpp)
+ add_executable(athlas_node src/athlas_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
- add_dependencies(athlas_mini_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+ add_dependencies(athlas_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(athlas_mini_node
+ target_link_libraries(athlas_node
    ${catkin_LIBRARIES}
-   athlas_mini
-   adc_mini
+   athlas
+   adc
    wiringPi
  )
 
@@ -171,7 +171,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS athlas_mini athlas_mini_node
+# install(TARGETS athlas athlas_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -196,7 +196,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_athlas_mini.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_athlas.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

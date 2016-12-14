@@ -1,5 +1,5 @@
 #include "athlas_mini/athlas_mini.hpp"
-#include "athlas_mini/adc.hpp"
+#include "athlas_mini/adc_mini.hpp"
 
 int main(int argc, char **argv) {
 	

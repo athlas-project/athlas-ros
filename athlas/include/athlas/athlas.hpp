@@ -33,7 +33,7 @@
 //+-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
 
 
-class ATHLAS_mini {
+class Athlas {
 	public:
 	void setupGPIO();
 	void setServo(int pwm, int pin);

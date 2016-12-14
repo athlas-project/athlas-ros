@@ -8,7 +8,7 @@
 //      gpio load i2c
 //before using
  
-#include "athlas_mini/adc.hpp"
+#include "athlas/adc.hpp"
 
 int fd;  /* I2C File descriptor */
 int ADS1015Addr = 0x48;  /* device address */
