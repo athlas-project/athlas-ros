@@ -93,27 +93,25 @@ int ADC::readAnalog(int a){
 //  return(value);
 }
 
-float ADC::readPressure(){
-	
+float ADC::readForce(int pin){
+
   fd = wiringPiI2CSetup(ADS1015Addr);
 	if (fd<0) {
       printf("i2c error: fd<0  fd=%d  ... abend. ",fd);
       return 1;
-	} 
+	}
   cfg = 0x8300;
-  cfg = ConfigAD(cfg,MODESINGLE,PRESSURE);
-  cfg = ConfigPGA(cfg,ADScale[PRESSURE]);
+  cfg = ConfigAD(cfg,MODESINGLE,pin);
+  cfg = ConfigPGA(cfg,ADScale[pin]);
   sta = wiringPiI2CWriteReg16(fd,ADCONFIG,cfg);
   usleep(uslptm);
   value = wiringPiI2CReadReg16(fd,ADCONVERT);
   value = swapbytes(value);
-
   value = (vfs*value)/0x8000; //convert to voltage
-  value =  value * 2.0/2.4  - 0.5; // this is the output in bar (or 100 kPa) relative to ambient pressure (for 150 Ohm)
-//  float f = 0.0035;
-//  std::cout  << value << " bar" << std::endl;
-//  printf("ADS1015 Chan %f bar \n", value);
-//  printf("Pressure: %f bar \n", value);
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  value =  value * 2.0/2.4  - 0.5; //needs to be changed for conversion to [N]
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
   return(value);
 }
 int swapbytes(int d)

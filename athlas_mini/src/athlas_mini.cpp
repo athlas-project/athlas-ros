@@ -10,6 +10,6 @@ void ATHLAS_mini::setServo(int pwm, int pin) {
 	softPwmWrite(pin,pwm);
 }
 
-bool ATHLAS_mini::senseGround() {
+double ATHLAS_mini::senseGround() {
 
 }

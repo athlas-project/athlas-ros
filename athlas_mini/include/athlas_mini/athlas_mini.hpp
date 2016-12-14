@@ -37,5 +37,5 @@ class ATHLAS_mini {
 	public:
 	void setupGPIO();
 	void setServo(int pwm, int pin);
-	bool senseGround();
+	double senseGround();
 };
