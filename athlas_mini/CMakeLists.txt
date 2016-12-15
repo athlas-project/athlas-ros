@@ -150,9 +150,9 @@ include_directories(
 
 ## Specify libraries to link a library or executable target against
  target_link_libraries(athlas_mini_node
-   ${catkin_LIBRARIES}
    athlas_mini
    adc_mini
+   ${catkin_LIBRARIES}
    wiringPi
  )
 

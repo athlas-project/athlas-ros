@@ -32,10 +32,10 @@
 //| BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
 //+-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
 
+#define SERVOS 12,14,16,18
 
 class ATHLAS_mini {
 	public:
 	void setupGPIO();
 	void setServo(int pwm, int pin);
-	double senseGround();
 };
