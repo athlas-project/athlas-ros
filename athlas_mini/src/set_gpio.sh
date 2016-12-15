@@ -5,6 +5,8 @@ echo -e This script sets the GPIO pins, you need to have wiringPi installed for 
 
 gpio unexportall
 #gpio readall
+gpio export 11 out
+gpio export 15 out
 gpio export 12 out #servo vorne links
 gpio export 14 out #servo vorne rechts
 gpio export 16 out #servo hinten links
