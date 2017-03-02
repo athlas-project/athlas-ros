@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv) {
 	
-	ros::init(argc,argv,"ATHLAS started");
+	ros::init(argc,argv,"ATHLAS");
 
 	return 0;
 }
